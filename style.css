@@ -1,0 +1,34 @@
+.make-btn {
+    margin-top: 15px;
+}
+.home-btn {
+    font-size: 1.5rem;
+    margin-top: 15px;
+    margin-left: 5px;
+}
+.view-btn {
+    background-color: rgb(66, 89, 139);
+    border: 1px solid rgb(66, 89, 139);
+    outline: none;
+    margin-top: 15px;
+}
+.view-btn:hover {
+    background-color: rgb(66, 89, 139);
+    opacity: .8;
+    border: 1px solid rgb(66, 89, 139);
+    outline: none;
+}
+.reserve-form {
+    margin: 20px;
+}
+.submit-btn {
+    background-color: rgb(66, 89, 139);
+    border: 1px solid rgb(66, 89, 139);
+    outline: none;
+}
+.submit-btn:hover {
+    background-color: rgb(66, 89, 139);
+    opacity: .8;
+    border: 1px solid rgb(66, 89, 139);
+    outline: none;
+}

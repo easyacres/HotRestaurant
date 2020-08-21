@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hot Restaurant</title>
+    <!-- Latest compiled and minified CSS & JS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.1/css/all.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="jumbotron text-center">
+            <span></span>
+            <h1 class="display-3"><span class="fas fa-fire"></span> Hot Restaurant</h1>
+            <hr>
+            <h1 class="display-6">Make Your Reservation</h1>
+            <button class="btn btn-danger btn-lg view-btn"><span class="fas fa-credit-card"></span> View Tables</button>
+            <button class="btn btn-light home-btn"><span class="fas fa-home"></span></button>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h5>Table Reservation</h5>
+                    </div>
+                    <form class="reserve-form">
+                        <div class="form-group">
+                            <label for="nameinput">Name</label>
+                            <input type="name" class="form-control" id="nameinput">
+                        </div>
+                        <div class="form-group">
+                            <label for="phoneinput">Phone Number</label>
+                            <input type="phone" class="form-control" id="phoneinput">
+                        </div>
+                        <div class="form-group">
+                            <label for="emailinput">Email</label>
+                            <input type="email" class="form-control" id="emailinput">
+                        </div>
+                        <div class="form-group">
+                            <label for="uniqueid">Unique ID</label>
+                            <input type="id" class="form-control" id="uniqueid">
+                        </div>
+                        <button type="submit" class="btn btn-primary submit-btn">Submit</button>
+                    </form>
+                </div>
+            </div>
+            <br>
+            <a href="">API Table Link </a><span><a href=""> API Wait List</a></span>
+ 
+            <form action="http://localhost:3000" method="POST">
+                <div>
+                  <label for="say">Reservation Name</label>
+                  <input name="name" id="name" value="Your Name Here">
+                </div>
+                <div>
+                  <label for="to">Phone Number</label>
+                  <input name="phone" id="phone" value="Phone Number">
+                </div>
+                <div>
+                    <label for="to">Email</label>
+                    <input name="email" id="email" value="Email">
+                  </div>
+                  <div>
+                    <label for="to">Unique Id</label>
+                    <input name="uid" id="uid" value="Unique ID">
+                  </div>
+                <div>
+                  <button>Send my greetings</button>
+                </div>
+              </form>
+    
+    <!--  -->
+         
+    
+      <script type="text/javascript">
+        $("#add-btn").on("click", function(event) {
+          event.preventDefault();
+          const newReservation = {
+            name: $("#name").val().trim(),
+            phone: $("#phone").val().trim(),
+            email: $("#email").val().trim(),
+            uid: $("#uid").val().trim()
+          };
+    
+          // Question: What does this code do??
+          $.post("/api/characters", newReservation)
+            .then(function(data) {
+              console.log(".html", data);
+              alert("Adding Reservation...");
+            });
+        });
+      </script>
+
+</body>
+</html>
+        <!--  -->
+        
+
+  <!-- <script type="text/javascript">
+    // QUESTION: What is this code doing?
+    $("#search-btn").on("click", () => {
+      const searchedCharacter = $("#character-search").val().trim();
+
+      // Using a RegEx Pattern to remove spaces from searchedCharacter
+      // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
+      searchedCharacter = searchedCharacter.replace(/\s+/g, "").toLowerCase();
+
+      // QUESTION: What does $.get do? What are the parameters it is expecting?
+      $.get("/api/characters/" + searchedCharacter, function(data) {
+        console.log(data);
+        if (data) {
+          $("#stats").show();
+          $("#name").text(data.name);
+          $("#role").text(data.role);
+          $("#age").text(data.age);
+          $("#force-points").text(data.forcePoints);
+        }
+        else {
+          $("#name").text("The force is not strong with this one. Your character was not found.");
+          $("#stats").hide();
+        }
+      });
+    });
+  </script> -->
+
+</body>
+
+</html>
